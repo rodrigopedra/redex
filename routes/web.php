@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/books/{book}', 'BooksController@show');
+=======
+Route::get('test', function () {
+    return view('test');
+});
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125

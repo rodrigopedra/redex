@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="d39b9dbe-6fd4-4db7-bd8f-23105a5f7134" name="Default Changelist" comment="" />
+=======
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a9bed2d-11f7-48aa-aa41-aa7206dc39b8" name="Default Changelist" comment="" />
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ComposerSettings">
+=======
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
     <execution />
   </component>
   <component name="Git.Settings">
@@ -124,10 +143,15 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
     </include_path>
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1hou0BwIKBvB6fBQyAwSCkPWyGu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+=======
+  <component name="ProjectId" id="1hSMLZiJOgMiqSxVu5alB2e159g" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -135,12 +159,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -154,12 +183,102 @@
       <updated>1600689544630</updated>
       <workItem from="1600689546491" duration="1013000" />
     </task>
+=======
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a9bed2d-11f7-48aa-aa41-aa7206dc39b8" name="Default Changelist" comment="" />
+      <created>1599999984905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599999984905</updated>
+      <workItem from="1599999986039" duration="1937000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit: basic structure.">
+      <created>1600001994302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600001994303</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+<<<<<<< HEAD
     <option name="oldMeFiltersMigrated" value="true" />
+=======
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit: basic structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit: basic structure." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="217" y="23" key="CommitChangelistDialog2" timestamp="1600001993876">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="217" y="23" key="CommitChangelistDialog2/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600001993875" />
+    <state x="511" y="319" width="258" height="256" key="Github.ShareDialog" timestamp="1600001383078">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="511" y="319" width="258" height="256" key="Github.ShareDialog/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600001383078" />
+    <state x="385" y="41" key="Github.UntrackedFilesDialog" timestamp="1600001396133">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="385" y="41" key="Github.UntrackedFilesDialog/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600001396133" />
+    <state width="1280" height="199" key="GridCell.Tab.0.bottom" timestamp="1600002091436">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1280" height="199" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600002091436" />
+    <state width="1280" height="199" key="GridCell.Tab.0.center" timestamp="1600002091430">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1280" height="199" key="GridCell.Tab.0.center/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600002091430" />
+    <state width="1280" height="199" key="GridCell.Tab.0.left" timestamp="1600002091429">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1280" height="199" key="GridCell.Tab.0.left/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600002091429" />
+    <state width="1280" height="199" key="GridCell.Tab.0.right" timestamp="1600002091432">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1280" height="199" key="GridCell.Tab.0.right/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600002091432" />
+    <state x="141" y="50" key="SettingsEditor" timestamp="1600001360683">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="141" y="50" key="SettingsEditor/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600001360683" />
+    <state x="240" y="147" key="Vcs.Push.Dialog.v2" timestamp="1600002045697">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="240" y="147" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600002045697" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1600001416773">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.23.1280.777/1280.23.1194.811@0.23.1280.777" timestamp="1600001416773" />
+>>>>>>> f9f3ee7057829796647cb129ad9b80aae1357125
   </component>
 </project>
