@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books', [BooksController::class, 'show']);
-Route::get('news', [BooksController::class, 'index'])->name('news');
-Route::get('news/create', [BooksController::class, 'create'])->name('news.create');
-Route::post('news/store', [BooksController::class, 'store'])->name('news.store');
-Route::get('news/{id}', [BooksController::class, 'show'])->name('news.show');
+
+Route::get('books', [BooksController::class, 'index'])->name('books');
+Route::get('books/create', [BooksController::class, 'create'])->name('books.create');
+Route::post('books/store', [BooksController::class, 'store'])->name('books.store');
+Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
 
