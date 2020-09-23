@@ -10,8 +10,6 @@
 <body>
 <h1>Book</h1>
 
-<p><?php echo e($book->title); ?></p>
-
 </body>
 </html>
 <?php /**PATH /Users/robinvandoorn/code/redex/resources/views/book.blade.php ENDPATH**/ ?>

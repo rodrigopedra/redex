@@ -10,7 +10,5 @@
 <body>
 <h1>Book</h1>
 
-<p>{{ $book->title }}</p>
-
 </body>
 </html>
