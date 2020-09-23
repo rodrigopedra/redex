@@ -547,3 +547,33 @@
 #43 /Users/robinvandoorn/.composer/vendor/laravel/valet/server.php(191): require('/Users/robinvan...')
 #44 {main}
 "} 
+[2020-09-21 14:29:59] local.ERROR: syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) {"exception":"[object] (ParseError(code: 0): syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) at /Users/robinvandoorn/code/redex/app/Providers/RouteServiceProvider.php:27)
+[stacktrace]
+#0 /Users/robinvandoorn/code/redex/vendor/composer/ClassLoader.php(322): Composer\\Autoload\\includeFile('/Users/robinvan...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Providers\\\\R...')
+#2 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(690): spl_autoload_call('App\\\\Providers\\\\R...')
+#3 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(624): Illuminate\\Foundation\\Application->resolveProvider('App\\\\Providers\\\\R...')
+#4 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('App\\\\Providers\\\\R...')
+#5 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(604): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#6 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#7 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(230): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#8 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#9 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#10 /Users/robinvandoorn/code/redex/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2020-09-21 14:32:13] local.ERROR: syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) {"exception":"[object] (ParseError(code: 0): syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) at /Users/robinvandoorn/code/redex/app/Providers/RouteServiceProvider.php:27)
+[stacktrace]
+#0 /Users/robinvandoorn/code/redex/vendor/composer/ClassLoader.php(322): Composer\\Autoload\\includeFile('/Users/robinvan...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Providers\\\\R...')
+#2 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(690): spl_autoload_call('App\\\\Providers\\\\R...')
+#3 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(624): Illuminate\\Foundation\\Application->resolveProvider('App\\\\Providers\\\\R...')
+#4 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('App\\\\Providers\\\\R...')
+#5 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(604): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#6 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#7 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(230): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#8 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#9 /Users/robinvandoorn/code/redex/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#10 /Users/robinvandoorn/code/redex/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
