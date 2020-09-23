@@ -14,5 +14,14 @@ use App\Http\Controllers\BooksController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/books', [BooksController::class, 'show']);
+Route::get('news', [BooksController::class, 'index'])->name('news');
+Route::get('news/create', [BooksController::class, 'create'])->name('news.create');
+Route::post('news/store', [BooksController::class, 'store'])->name('news.store');
+Route::get('news/{id}', [BooksController::class, 'show'])->name('news.show');
+
 
