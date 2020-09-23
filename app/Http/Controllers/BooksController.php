@@ -9,10 +9,8 @@ use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
-    public function show($slug)
+    public function show()
     {
-       return view('book', [
-           'book' => Book::where('slug', $slug)->firstOrFail()
-       ]);
+       return view('book');
     }
 }
