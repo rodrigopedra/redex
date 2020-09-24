@@ -10,6 +10,14 @@
         <form method="post" action="{{route('books.store')}}">
             @csrf
             <div class="form-group">
+                <label for="category">Categorie:</label>
+                <select class="form-control" name="category" id="category">
+                    @foreach($categories as $category)
+                        <option value="{{$category['id']}}">{{$category['title']}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="title">Titel</label>
                 <input type="text" class="form-control" id="title" name="title">
                 @if ($errors->has('title'))
