@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
+use App\Models\NewsItem;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -14,10 +16,8 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('books.index', [
-            'books' => $books
-        ]);
+        $books = Book::orderBy('created_at', 'desc')->get();
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -27,7 +27,8 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $categories = Category::all();
+        return view('books.create', compact('categories'));
     }
 
     /**
@@ -40,14 +41,19 @@ class BooksController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'author' => 'required',
             'description' => 'required',
+            'image' => 'required',
+            'category' => ['exists:categories,id'],
         ]);
 
         $books = new Book();
         $books->title = $request->get('title');
+        $books->author = $request->get('author');
         $books->description = $request->get('description');
         $books->image = $request->get('image');
-        $books->author = $request->get('author');
+        $books->category_id = $request->get('category');
+
 
         $books->save();
         return redirect('books')->with('success', "Boek is opgeslagen!");
@@ -61,18 +67,12 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        try {
-            $book = Book::find($id);
-            $error = null;
-        } catch (\Exception $e) {
-            $book = null;
-            $error = $e->getMessage();
+        $book = Book::find($id);
+        if ($book === null) {
+            abort(404, "Dit boek is niet gevonden.");
         }
 
-        return view('books.show', [
-            'book' => $book,
-            'error' => $error
-        ]);
+        return view('books.show', compact('book'));
     }
 
     /**
