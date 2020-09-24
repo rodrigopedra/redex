@@ -31,5 +31,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Book extends Model
 {
+    public $fillable = ['title','author','description','image', 'category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
     use HasFactory;
 }
