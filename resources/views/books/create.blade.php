@@ -25,6 +25,13 @@
                 @endif
             </div>
             <div class="form-group">
+                <label for="author">Auteur</label>
+                <input type="text" class="form-control" id="author" name="author">
+                @if ($errors->has('description'))
+                    <span class="alert">{{$errors->first('author')}}</span>
+                @endif
+            </div>
+            <div class="form-group">
                 <label for="description">Beschrijving</label>
                 <input type="text" class="form-control" id="description" name="description">
                 @if ($errors->has('description'))
@@ -34,13 +41,6 @@
             <div class="form-group">
                 <label for="image">Afbeelding</label>
                 <input type="text" class="form-control" id="image" name="image"/>
-            </div>
-            <div class="form-group">
-                <label for="author">Auteur</label>
-                <input type="text" class="form-control" id="author" name="author">
-                @if ($errors->has('description'))
-                    <span class="alert">{{$errors->first('author')}}</span>
-                @endif
             </div>
             <button type="submit" class="btn-primary btn-block">Boek Opslaan</button>
         </form>
