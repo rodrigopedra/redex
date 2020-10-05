@@ -25,3 +25,7 @@ Route::post('books/store', [BooksController::class, 'store'])->name('books.store
 Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
