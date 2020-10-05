@@ -11,8 +11,21 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 storage/logs/laravel.log
-.idea/~$rkspace.xml
-storage/logs/laravel.log
-storage/logs/laravel.log
 .idea/redex.iml
 *.xml
+.idea_modules/
+
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
