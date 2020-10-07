@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
-use App\Models\NewsItem;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
