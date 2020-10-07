@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="author">Auteur</label>
                 <input type="text" class="form-control" id="author" name="author">
-                @if ($errors->has('description'))
+                @if ($errors->has('author'))
                     <span class="alert">{{$errors->first('author')}}</span>
                 @endif
             </div>
