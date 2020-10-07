@@ -16,7 +16,6 @@
             @foreach($books as $book)
                 <div class="col-sm card border-9">
                     <h2 class="card-title">{{$book['title']}}</h2>
-                    <p>{{ $book->category->title}}</p>
                     <p class="card-text">{{$book['author']}}</p>
                     <img src="{{$book['image']}}" alt="{{$book['title']}}" class="card-img">
                     <a  class="btn btn-light" href="{{route('books.show', $book['id'])}}">Lees meer</a>
