@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('books', [BooksController::class, 'index'])->name('books');
-Route::get('books/create', [BooksController::class, 'create'])->name('books.create');
+Route::get('books/create', [BooksController::class, 'create'])->name('books.create')->middleware('auth');
 Route::post('books/store', [BooksController::class, 'store'])->name('books.store');
 Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
