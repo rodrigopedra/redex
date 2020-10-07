@@ -14,13 +14,13 @@ use App\Http\Controllers\BooksController;
 |
 */
 
-
+//books
 Route::get('/', [BooksController::class, 'index'])->name('books');
 Route::get('books/create', [BooksController::class, 'create'])->name('books.create')->middleware('auth');
 Route::post('books/store', [BooksController::class, 'store'])->name('books.store');
 Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
-
+//comments
 Route::get('comments/create', [BooksController::class, 'create'])->name('comments.create')->middleware('auth');
 Route::post('comments/store', [BooksController::class, 'store'])->name('comments.store');
 
