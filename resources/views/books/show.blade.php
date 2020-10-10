@@ -20,26 +20,45 @@
         @endif
     </div>
 
-    <div class="comments_form">
-        <form method="post" action="{{route('comments.store')}}">
-            @csrf
-            <div class="form-group">
-                <label for="title">Titel</label>
-                <input type="text" class="form-control" id="title" name="title">
-                @if ($errors->has('title'))
-                    <span class="alert">{{$errors->first('title')}}</span>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="comment">Comment</label>
-                <input type="text" class="form-control" id="comment" name="comment">
-                @if ($errors->has('comment'))
-                    <span class="alert">{{$errors->first('comment')}}</span>
-                @endif
-            </div>
-            <button type="submit" class="btn-primary btn-block">Comment Plaatsen</button>
-        </form>
+    <div class="comments">
+        <ul class="list-group">
+
+        @foreach ($book->comments as $comment)
+            <li class="list-group-item">
+
+                {{$comment->body}}
+                {{$comment->created_at}}
+                {{$comment->user_id}}
+
+            </li>
+        @endforeach
+
+        </ul>
     </div>
+
+    <div class="card">
+
+        <div class="card-block">
+
+            <form method="POST" action="/books/{{ $book->id }}/comments">
+                @csrf
+
+                <div class="form-group">
+
+                    <label for="image">comment</label>
+                    <input placeholder="your comment here." type="text" class="form-control" id="body" name="body"/>
+
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-primary btn-block">Comment</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
 @endsection
 
 
