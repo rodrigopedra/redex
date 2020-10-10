@@ -20,9 +20,9 @@ Route::get('books/create', [BooksController::class, 'create'])->name('books.crea
 Route::post('books/store', [BooksController::class, 'store'])->name('books.store');
 Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
-//comments
-Route::get('comments/create', [BooksController::class, 'create'])->name('comments.create')->middleware('auth');
-Route::post('comments/store', [BooksController::class, 'store'])->name('comments.store');
+Route::post('/books/{book}/comments', [\App\Http\Controllers\CommentsController::class, 'store']);
+
+
 
 
 Auth::routes();
