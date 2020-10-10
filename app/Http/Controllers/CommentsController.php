@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Book;
 use App\Models\User;
 
 class CommentsController extends Controller
@@ -25,7 +26,12 @@ class CommentsController extends Controller
      */
     public function create()
     {
-        //
+        Comment::create([
+
+            'title' => request('title'),
+            'body' => request('body'),
+            'user_id' => auth()->id()
+        ]);
     }
 
     /**
@@ -34,9 +40,11 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Book $book)
     {
-        //
+        $book->addComment(request('body'));
+
+        return back();
     }
 
     /**
