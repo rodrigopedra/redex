@@ -32,11 +32,24 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Book extends Model
 {
-    public $fillable = ['title','author','description','image', 'category_id'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-    use HasFactory;
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+
+    }
+
+    public function addComment($body)
+    {
+        $this->comments()->create(['body' => $body, 'user_id' => auth()->id()]);
+
+
+    }
+
 }
