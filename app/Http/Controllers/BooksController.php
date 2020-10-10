@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Comment;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -13,6 +15,12 @@ class BooksController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function index()
     {
         $books = Book::orderBy('created_at', 'desc')->get();
