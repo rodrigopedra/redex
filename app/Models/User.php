@@ -37,11 +37,18 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
     public function reading_list()
     {
         return $this->belongsToMany(Reading_List::class);
 
     }
+
+
 
     /**
      * The attributes that are mass assignable.
