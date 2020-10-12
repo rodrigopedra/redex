@@ -11,9 +11,9 @@
 <body>
 <main>
     @if(Route::has('login'))
-        <div class="top-right links">
+        <div class="nav">
             @auth
-                <a href="{{ url('/') }}">Home</a>
+                <a class="nav_a" href="{{ url('/books') }}">Home</a>
             @else
                 <a href="{{ url('login') }}">Login</a>
 
