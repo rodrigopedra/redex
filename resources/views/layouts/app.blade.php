@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Redex') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,21 +29,21 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    <div class="navbar-nav mr-auto">
+                        <a  class="nav_a" href="{{route('books')}}">Home</a>
+                    </div>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            <div class="nav-item">
+                                <a class="nav-link nav_a" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </div>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                <div class="nav-item">
+                                    <a class="nav-link nav_a" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </div>
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -64,7 +64,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </div>
                 </div>
             </div>
         </nav>

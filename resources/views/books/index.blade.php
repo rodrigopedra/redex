@@ -2,8 +2,7 @@
 
 @section('content')
     <header class="jumbotron">
-        <h1 class="modal-title float-left">Books</h1>
-        <a  class="nav-link float-right" href="{{route('books.create')}}">Voeg een nieuw book toe.</a>
+        <a  class="nav-link float-right add_link" href="{{route('books.create')}}">add new book</a>
     </header>
 
     <div class="container">
@@ -19,6 +18,8 @@
                     <p class="card-text">{{$book['author']}}</p>
                     <img src="{{$book['image']}}" alt="{{$book['title']}}" class="card-img">
                     <a  class="btn btn-light" href="{{route('books.show', $book['id'])}}">Lees meer</a>
+                    <a  class="btn btn-light" href="#">Voeg toe aan leeslijst</a>
+
                 </div>
             @endforeach
         </div>
