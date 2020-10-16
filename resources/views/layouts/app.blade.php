@@ -30,7 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <div class="navbar-nav mr-auto">
-                        <a  class="nav_a" href="{{route('books')}}">Home</a>
+                        <a  class="nav_a m-3" href="{{route('books')}}">Home</a>
+                        <a  class="nav-a m-3" href="{{route('books.create')}}">Add a book</a>
+                        <a  class="nav-a m-3" href="{{route('books.create')}}">Mijn leeslijst</a>
+
                     </div>
 
                     <!-- Right Side Of Navbar -->
