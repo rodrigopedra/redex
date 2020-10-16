@@ -2,52 +2,63 @@
 
 
 @section('content')
-    <header class="book_header">
-        @if($book)
-            <h1>{{$book['title']}}</h1>
-        @else
-        <h1>{{$error}}</h1>
-        @endif
-            <a href="{{route('books')}}">Terug naar overzicht</a>
-    </header>
+<div class="container">
+    <div>
+        <a href="{{route('books')}}">
+            terug
+        </a>
+    </div>
 
-    <div class="container align-self-center">
-        <div class="mx-auto">
-        @if($book)
-           <div class="book-container col align-content-center">
-               <p>{{$book['description']}}</p>
-               <p>{{$book['author']}}</p>
+
+    <div class="container">
+    @if($book)
+       <div class="row">
+           <div class="col-lg">
                <img src="{{$book['image']}}" alt="{{$book['title']}}">
            </div>
-        </div>
+           <div class="col-lg">
+               <header>
+                   @if($book)
+                       <h1>{{$book['title']}}</h1>
+                   @else
+                       <h1>{{$error}}</h1>
+                   @endif
+               </header>
+               <p>{{$book['author']}}</p>
+               <p>{{$book['description']}}</p>
+               <button class="btn-primary btn-block">Voeg toe aan leeslijst</button>
+           </div>
+       </div>
         @endif
     </div>
-    <div class="row">
-        <ul class="list-group">
+
+    <div class="container">
+        <ul class="border">
         @foreach ($book->comments as $comment)
             <div class="container">
-                <li class="list-group-item">{{$comment->body}}</li>
-                <li class="list-group-item">{{$comment->created_at}}</li>
-                <li class="list-group-item">{{$comment->user_id}}</li>
+                {{$comment->body}}
+                {{$comment->created_at->toFormattedDateString()}}
+                {{$comment->user->name}}
             </div>
         @endforeach
         </ul>
     </div>
-    <div class=" card align-content-center border-9">
-        <div class="card-block align-self-center">
+
+    <div class="container">
+        <div>
             <form method="POST" action="/books/{{ $book->id }}/comments">
                 @csrf
                 <div class="form-group">
-                    <label for="image">comment</label>
                     <input placeholder="your comment here." type="text" class="form-control" id="body" name="body"/>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn-primary btn-block">Comment</button>
                 </div>
+                <input type="hidden" name="book_id" value="{{$book->id}}">
             </form>
         </div>
     </div>
-
+</div>
 @endsection
 
 
