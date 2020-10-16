@@ -26,12 +26,7 @@ class CommentsController extends Controller
      */
     public function create()
     {
-        Comment::create([
-
-            'title' => request('title'),
-            'body' => request('body'),
-            'user_id' => auth()->id()
-        ]);
+        return view('books.index');
     }
 
     /**
@@ -40,9 +35,17 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Book $book)
+    public function store()
     {
-        $book->addComment(request('body'));
+        $this->validate(request(), [
+            'body' => 'required'
+        ]);
+
+        Comment::create([
+
+            'body' => request('body'),
+            'user_id' => auth()->id()
+        ]);
 
         return back();
     }
@@ -55,7 +58,7 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
