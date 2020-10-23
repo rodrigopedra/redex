@@ -35,15 +35,15 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Book $book)
     {
-        $this->validate(request(), [
-            'body' => 'required'
-        ]);
+        //$book->addComment(request('body'));
+
 
         Comment::create([
 
             'body' => request('body'),
+            'book_id' => $book->id,
             'user_id' => auth()->id()
         ]);
 
