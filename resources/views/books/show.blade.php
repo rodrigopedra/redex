@@ -10,7 +10,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container m-2">
     @if($book)
        <div class="row">
            <div class="col-lg">
@@ -33,30 +33,28 @@
     </div>
 
     <div class="container">
-        <ul class="border">
+
         @foreach ($book->comments as $comment)
-            <div class="container">
+            <div class="container border rounded p-2 m-1">
                 {{$comment->body}}
                 {{$comment->created_at->toFormattedDateString()}}
                 {{$comment->user->name}}
             </div>
         @endforeach
-        </ul>
+
     </div>
 
     <div class="container">
-        <div>
-            <form method="POST" action="/books/{{ $book->id }}/comments">
-                @csrf
-                <div class="form-group">
-                    <input placeholder="your comment here." type="text" class="form-control" id="body" name="body"/>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn-primary btn-block">Comment</button>
-                </div>
-                <input type="hidden" name="book_id" value="{{$book->id}}">
-            </form>
-        </div>
+        <form method="POST" action="/books/{{ $book->id }}/comments">
+            @csrf
+            <div class="form-group">
+                <input placeholder="your comment here." type="text" class="form-control" id="body" name="body"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-primary btn-block">Comment</button>
+            </div>
+            <input type="hidden" name="book_id" value="{{$book->id}}">
+        </form>
     </div>
 </div>
 @endsection
