@@ -16,7 +16,7 @@ storage/logs/laravel.log
 .idea_modules/
 
 
-# User-specific stuff:
+# Reader-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 

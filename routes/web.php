@@ -7,7 +7,7 @@ use App\Http\Controllers\CommentsController;
 
 Route::get('/', [BooksController::class, 'index'])->name('books');
 Route::get('/books', [BooksController::class, 'index'])->name('books');
-Route::get('books/create', [BooksController::class, 'create'])->name('books.create')->middleware('auth');
+Route::get('books/create', [BooksController::class, 'create'])->name('books.create')->middleware('auth','admin');
 Route::post('books/store', [BooksController::class, 'store'])->name('books.store');
 Route::get('books/{id}', [BooksController::class, 'show'])->name('books.show');
 
