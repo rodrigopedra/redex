@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <div class="container">
     <div>
@@ -8,7 +7,6 @@
             terug
         </a>
     </div>
-
 
     <div class="container m-2">
     @if($book)
@@ -27,6 +25,21 @@
                <p>{{$book['author']}}</p>
                <p>{{$book['description']}}</p>
                <button class="btn-primary btn-block">Voeg toe aan leeslijst</button>
+               @can('admin')
+               <button class="btn-secondary btn-block">
+                   <a class="disabled" href="{{ route('books.edit',$book->id)}}">Edit</a>
+               </button>
+
+                   <form class="mt-2" action="{{ route('books.destroy', $book->id)}}" method="post">
+                       @csrf
+                       @method('DELETE')
+                       <button class="btn-danger btn-block" type="submit">Delete</button>
+                   </form>
+
+
+
+
+               @endcan
            </div>
        </div>
         @endif
