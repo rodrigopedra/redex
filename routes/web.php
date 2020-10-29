@@ -15,4 +15,4 @@ Route::post('/books/{book}/comments', [CommentsController::class, 'store'])->nam
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [BooksController::class, 'index'])->name('home');
