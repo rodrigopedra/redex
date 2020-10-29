@@ -76,7 +76,7 @@ class BooksController extends Controller
     {
         $book = Book::find($id);
         if ($book === null) {
-            abort(404, "Dit boek is niet gevonden.");
+            abort(404, "No book has been found.");
         }
 
         return view('books.show', compact('book'));
@@ -90,7 +90,8 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::find($id);
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -102,7 +103,23 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'category' => ['exists:categories,id'],
+        ]);
+
+        $books = Book::find($id);
+        $books->title = $request->get('title');
+        $books->author = $request->get('author');
+        $books->description = $request->get('description');
+        $books->image = $request->get('image');
+        $books->category_id = $request->get('category');
+        $books->save();
+
+        return redirect('books')->with('success', "Boek is aangepast!");
     }
 
     /**
@@ -113,6 +130,9 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+
+        return redirect('books')->with('success', 'Book deleted!');
     }
 }
