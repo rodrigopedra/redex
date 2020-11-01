@@ -13,3 +13,5 @@ Route::resources(['books' => BooksController::class,]);
 Route::post('/books/{book}/comments', [CommentsController::class, 'store'])->name('comments.store');
 
 Route::get('/home', [BooksController::class, 'index'])->name('home');
+
+Route::get('/search', [BooksController::class, 'search']);

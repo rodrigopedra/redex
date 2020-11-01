@@ -21,6 +21,13 @@ class BooksController extends Controller
         return $this->hasMany(Comment::class);
     }
 
+    public function search()
+    {
+        $query=request('search_text');
+        $users = User::where('name', 'LIKE', '%' . $query . '%')->paginate(10);;
+        return view('searchresult',compact('users'));
+    }
+
     public function index()
     {
         $books = Book::orderBy('created_at', 'desc')->get();

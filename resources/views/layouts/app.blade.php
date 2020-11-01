@@ -30,12 +30,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <div class="navbar-nav mr-auto">
-                        <a  class="nav_a m-3" href="{{route('books')}}">Home</a>
+                        <a  class="nav_a m-3" href="{{route('home')}}">Home</a>
                         @can('admin')
                             <a  class="nav-a m-3" href="{{route('books.create')}}">Add a book</a>
-                            <a  class="nav-a m-3" href="{{route('books.create')}}">Admin panel</a>
                         @endcan
-                        <a  class="nav-a m-3" href="{{route('books.create')}}">Mijn leeslijst</a>
+                        <a  class="nav-a m-3" href="#">Mijn leeslijst</a>
+
+                        <form action="/search" method="get" class="m-3">
+                            {{ csrf_field() }}
+                            <input  name="search_text" type="text"/>
+                            <input class="btn-primary" type="submit"/>
+                        </form>
 
                     </div>
 
