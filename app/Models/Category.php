@@ -32,4 +32,10 @@ class Category extends Model
         return $this->hasMany(Book::class);
     }
     use HasFactory;
+
+    public function getRouteKeyName()
+    {
+        return 'title';
+    }
 }
+
