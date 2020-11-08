@@ -38,10 +38,10 @@
                     </div>
 
                     <div class="input-group p-4">
-                        <form action="/search" method="get">
+                        <form action="{{ url('/search') }}" method="get">
                             @csrf
                             <input type="hidden" name="search_param" value="all" id="search_param">
-                            <input type="text" class="form-control" name="x" placeholder="Search term...">
+                            <input class="form-control" type="text"  name="q" placeholder="Search...">
                         </form>
                     </div>
 

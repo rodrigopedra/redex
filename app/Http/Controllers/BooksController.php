@@ -23,9 +23,10 @@ class BooksController extends Controller
 
     public function search()
     {
-        $query=request('search_text');
-        $users = User::where('name', 'LIKE', '%' . $query . '%')->paginate(10);;
-        return view('searchresult',compact('users'));
+        $search_text = $_GET['q'];
+        $books = Book::where('title', 'LIKE', "%".$search_text.'%')->get();
+        return view('books.searchresult', compact('books'));
+
     }
 
     public function index()
