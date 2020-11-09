@@ -9,7 +9,7 @@ Auth::routes();
 
 Route::get('/', [BooksController::class, 'index'])->name('books');
 
-Route::resources(['books' => BooksController::class,]);
+Route::resource('books', BooksController::class);
 
 Route::post('/books/{book}/comments', [CommentsController::class, 'store'])->name('comments.store');
 

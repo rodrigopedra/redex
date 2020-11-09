@@ -96,10 +96,19 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
+
+//    public function edit($id)
+//    {
+//        $book = Book::find($id);
+//        $categories = Category::all();
+//        return view('books.edit', compact('book', 'categories'));
+//    }
+
     public function edit($id)
     {
         $book = Book::find($id);
-        return view('books.edit', compact('book'));
+        $categories = Category::all();
+        return view('books.edit', compact('book', 'categories'));
     }
 
     /**
@@ -107,8 +116,25 @@ class BooksController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
+
+//    public function update(Request $request, Book $books)
+//    {
+//        $validatedData = $request->validate([
+//            'title' => 'required',
+//            'author' => 'required',
+//            'description' => 'required',
+//            'image' => 'required',
+//            'category' => ['exists:categories,id'],
+//        ]);
+//
+//        $books->update($validatedData);
+//
+//
+//        return redirect()->route('books.index')->with('success', 'Changes applied!');
+//    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -127,7 +153,7 @@ class BooksController extends Controller
         $books->category_id = $request->get('category');
         $books->save();
 
-        return redirect('books')->with('success', "Boek is aangepast!");
+        return redirect('books')->with('success', 'Book updated!');
     }
 
     /**
@@ -138,9 +164,9 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id);
+        $book = Book::findOrFail($id);
         $book->delete();
 
-        return redirect('books')->with('success', 'Book deleted!');
+        return redirect()->route('books.index')->with('success', 'Book deleted!');
     }
 }
