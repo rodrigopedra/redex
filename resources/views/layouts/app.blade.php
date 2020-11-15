@@ -32,7 +32,8 @@
                     <div class="navbar-nav mr-auto">
                         <a  class="nav_a m-3 p-2" href="{{route('home')}}">Home</a>
                         @can('admin')
-                        <a  class="nav-a m-3 p-2" href="{{route('books.create')}}">Add a book</a>
+                        <a  class="nav-a m-3 p-2" href="{{route('books.create')}}">Add</a>
+                        <a  class="nav-a m-3 p-2" href="{{route('books.panel')}}">Panel</a>
                         @endcan
                         <a  class="nav-a m-3 p-2" href="#">Leeslijst</a>
                     </div>

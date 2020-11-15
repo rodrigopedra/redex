@@ -23,7 +23,19 @@ class BooksController extends Controller
 
     public function panel()
     {
-        return view('books.panel', compact('books'));
+        $books = Book::orderBy('created_at', 'desc')->get();
+        $categories = Category::all();
+
+        return view('books.panel', compact('books', 'categories'));
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $book = Book::findOrFail($request->book_id);
+        $book->status = $request->status;
+        $book->save();
+
+        return response()->json(['message' => 'Book status updated successfully.']);
     }
 
     public function search()

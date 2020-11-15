@@ -20,8 +20,13 @@
         <div class="row flex justify-content-center">
 
             @foreach($books as $book)
+
+                @if ($book->status === 0)
                 <div class="col-md-3 card border-9 text-center m-1 p-2">
-                    <img src="{{$book->image}}" alt="{{$book->title}}" class="card-img">
+                @else
+                <div class="d-none">
+                @endif
+                        <img src="{{$book->image}}" alt="{{$book->title}}" class="card-img">
                     <h2 class="card-title">{{$book->title}}</h2>
                     <p class="card-text">{{$book->author}}</p>
                     <p class="card-text">{{$book->category->title}}</p>

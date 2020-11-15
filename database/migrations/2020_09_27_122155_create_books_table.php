@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->text('description');
             $table->string('image');
             $table->foreignId('category_id')->constrained('categories');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
