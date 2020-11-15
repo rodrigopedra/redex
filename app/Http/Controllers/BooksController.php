@@ -21,10 +21,18 @@ class BooksController extends Controller
         return $this->hasMany(Comment::class);
     }
 
+    public function panel()
+    {
+        return view('books.panel', compact('books'));
+    }
+
     public function search()
     {
         $search_text = $_GET['q'];
-        $books = Book::where('title', 'LIKE', "%".$search_text.'%')->get();
+        $books = Book::where('title', 'LIKE', "%".$search_text.'%')
+        ->orWhere('author', 'like', '%' . $search_text . '%')
+        ->orWhere('description', 'like', '%' . $search_text . '%')->get();
+
         return view('books.searchresult', compact('books'));
 
     }
@@ -32,7 +40,8 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::orderBy('created_at', 'desc')->get();
-        return view('books.index', compact('books'));
+        $categories = Category::all();
+        return view('books.index', compact('books', 'categories'));
     }
 
     /**
@@ -97,13 +106,6 @@ class BooksController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
 
-//    public function edit($id)
-//    {
-//        $book = Book::find($id);
-//        $categories = Category::all();
-//        return view('books.edit', compact('book', 'categories'));
-//    }
-
     public function edit($id)
     {
         $book = Book::find($id);
@@ -118,22 +120,6 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-
-//    public function update(Request $request, Book $books)
-//    {
-//        $validatedData = $request->validate([
-//            'title' => 'required',
-//            'author' => 'required',
-//            'description' => 'required',
-//            'image' => 'required',
-//            'category' => ['exists:categories,id'],
-//        ]);
-//
-//        $books->update($validatedData);
-//
-//
-//        return redirect()->route('books.index')->with('success', 'Changes applied!');
-//    }
 
     public function update(Request $request, $id)
     {
