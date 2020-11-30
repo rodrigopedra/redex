@@ -35,7 +35,7 @@
                         <a  class="nav-a m-3 p-2" href="{{route('books.create')}}">Add</a>
                         <a  class="nav-a m-3 p-2" href="{{route('books.panel')}}">Panel</a>
                         @endcan
-                        <a  class="nav-a m-3 p-2" href="#">Leeslijst</a>
+                        <a  class="nav-a m-3 p-2" href="{{route('favorites.index')}}">Leeslijst</a>
                     </div>
 
                     <div class="input-group p-4">
