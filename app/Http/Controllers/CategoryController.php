@@ -3,16 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(Category $category)
+    public function __construct()
     {
-        $books = $category->book;
-        $categories = Category::all();
+        $this->middleware('auth');
+    }
 
-        return view('books.index', compact('books', 'categories'));
+    public function show(Category $category)
+    {
+        $categories = Category::query()
+            ->orderBy('title')
+            ->get();
 
+        $books = $category->books()->latest()->get();
+
+        $favorites = auth()->user()->favorites()->pluck('id');
+
+        return view('books.index', [
+            'books' => $books,
+            'categories' => $categories,
+            'category' => $category,
+            'favorites' => $favorites,
+        ]);
     }
 }

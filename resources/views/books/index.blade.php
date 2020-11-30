@@ -1,39 +1,77 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-block">
-                <storng>{{ $message }}</storng>
-            </div>
-        @endif
+        <section class="my-3">
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorieën</a>
+                <button type="button" class="btn btn-secondary dropdown-toggle"
+                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    @isset($category)
+                        {{ $category->title }}
+                    @else
+                        Categorieën
+                    @endif
+                </button>
+
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/books/">Alle</a>
+                    <a class="dropdown-item" href="{{ route('books.index') }}">Alle</a>
+
                     @foreach($categories as $category)
-                        <a class="dropdown-item" href="{{url('/books/categories/'.$category->title)}}">{{$category->title}}</a>
+                        <a class="dropdown-item" href="{{ route('categories.show', ['category' => $category]) }}">
+                            {{ $category->title }}
+                        </a>
                     @endforeach
                 </div>
             </div>
-        <div class="row flex justify-content-center">
+        </section>
 
-            @foreach($books as $book)
+        <div class="row justify-content-center">
+            @forelse($books as $book)
+                <div class="col col-sm-6 col-xl-3">
+                    <article class="card text-center mb-3">
+                        <img src="{{ $book->image }}" alt="{{ $book->title }}"
+                             class="card-img bg-light">
 
-                @if ($book->status === 0)
-                <div class="col-md-3 card border-9 text-center m-1 p-2">
-                @else
-                <div class="d-none">
-                @endif
-                        <img src="{{$book->image}}" alt="{{$book->title}}" class="card-img">
-                    <h2 class="card-title">{{$book->title}}</h2>
-                    <p class="card-text">{{$book->author}}</p>
-                    <p class="card-text">{{$book->category->title}}</p>
-                    <a  class="btn btn-light m-1" href="{{route('books.show', $book->id)}}">Lees meer</a>
-                    <a  class="btn btn-light m-1" href="#">Voeg toe aan leeslijst</a>
+                        <section class="card-body">
+                            <h2 class="card-title">{{$book->title}}</h2>
+
+                            <p class="card-text">{{$book->author}}</p>
+                            <p class="card-text">{{$book->category->title}}</p>
+
+                            <a class="btn btn-secondary text-nowrap" href="{{route('books.show', $book->id)}}">
+                                Lees meer
+                            </a>
+
+                            @if($favorites->contains($book->id))
+                                <form class="d-inline" method="POST"
+                                      action="{{ route('favorites.destroy', ['book' => $book]) }}">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger">Unfavorite</button>
+                                </form>
+                            @else
+                                <form class="d-inline" method="POST"
+                                      action="{{ route('favorites.update', ['book' => $book]) }}">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <button type="submit" class="btn btn-primary">Favoriet</button>
+                                </form>
+                            @endif
+                        </section>
+                    </article>
                 </div>
-            @endforeach
+            @empty
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <em class="card-text">No books found</em>
+                        </div>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 @endsection

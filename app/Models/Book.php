@@ -32,6 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Book extends Model
 {
+    protected $casts = [
+        'is_hidden' => 'boolean',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -40,11 +44,6 @@ class Book extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
-    }
-
-    public function addComment($body)
-    {
-        $this->comments()->create(compact('body'));
     }
 
     public function users()

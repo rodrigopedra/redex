@@ -25,17 +25,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    public $fillable = ['title'];
-
-    public function Book()
-    {
-        return $this->hasMany(Book::class);
-    }
     use HasFactory;
 
-    public function getRouteKeyName()
+    public $fillable = ['title'];
+
+    public function books()
     {
-        return 'title';
+        return $this->hasMany(Book::class);
     }
 }
 

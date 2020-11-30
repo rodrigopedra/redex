@@ -9,7 +9,7 @@ class FavoritesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware('auth');
     }
 
     public function index()
@@ -17,7 +17,10 @@ class FavoritesController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        $favorites = $user->favorites()->orderByDesc('id')->paginate(10);
+        $favorites = $user->favorites()
+            // order by pivot table's created_at column
+            ->orderByDesc('favorites.created_at')
+            ->paginate(10);
 
         return view('books.favorites', ['favorites' => $favorites]);
     }
@@ -29,7 +32,7 @@ class FavoritesController extends Controller
 
         if ($user->favorites()->where('book_id', $book->id)->exists()) {
             return redirect()->back()
-                ->with('flash_messaged', 'This item is already in your favorites!');
+                ->with('error', 'This item is already in your favorites!');
         }
 
         // Since ->favorites() returns a BelongsToMany
@@ -49,7 +52,7 @@ class FavoritesController extends Controller
         // relation, the ->detach() method is available
         $user->favorites()->detach($book);
 
-        return redirect()->route('favorite.index')
+        return redirect()->back()
             ->with('success', 'Book removed from favorites');
     }
 }
