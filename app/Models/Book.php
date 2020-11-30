@@ -32,24 +32,35 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Book extends Model
 {
-
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-
     public function comments()
     {
         return $this->hasMany(Comment::class);
-
     }
 
     public function addComment($body)
     {
         $this->comments()->create(compact('body'));
-
-
     }
 
+    public function users()
+    {
+        // 'favorites' here is the pivot table name
+        return $this->belongsToMany(User::class, 'favorites')
+            // tell Laravel to use the custom pivot model
+            // instead of a shallow model
+            ->using(Favorite::class)
+
+            // tell Laravel the pivot model has timestamps
+            ->withTimestamps()
+
+            // tell Laravel to name this relation
+            // as `users` instead of `pivot`
+            // when retrieving models
+            ->as('users');
+    }
 }

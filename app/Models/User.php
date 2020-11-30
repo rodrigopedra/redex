@@ -37,16 +37,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    public function books()
-    {
-        return $this->hasMany(Book::class);
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-    
     /**
      * The attributes that are mass assignable.
      *
@@ -73,4 +63,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * There is already a relation named books
+     */
+    public function favorites()
+    {
+        // 'favorites' here is the pivot table name
+        return $this->belongsToMany(Book::class, 'favorites')
+            // tell Laravel to use the custom pivot model
+            // instead of a shallow model
+            ->using(Favorite::class)
+
+            // tell Laravel the pivot model has timestamps
+            ->withTimestamps()
+
+            // tell Laravel to name this relation
+            // as `favorites` instead of `pivot`
+            // when retrieving models
+            ->as('favorites');
+    }
 }
